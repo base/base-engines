@@ -1,6 +1,6 @@
 {
   "name": "base-engines",
-  "description": "Adds template engine support to base applications.",
+  "description": "Adds support for managing template engines to your base application.",
   "version": "0.1.0",
   "homepage": "https://github.com/node-base/base-engines",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -10,7 +10,8 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "utils.js"
   ],
   "main": "index.js",
   "engines": {
@@ -19,22 +20,40 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.2.0",
+    "define-property": "^0.2.5",
+    "engine-cache": "^0.18.0",
+    "lazy-cache": "^2.0.1"
+  },
   "devDependencies": {
-    "gulp-format-md": "*",
+    "base": "^0.8.1",
+    "gulp-format-md": "^0.1.9",
     "mocha": "^2.5.3"
   },
   "keywords": [],
   "verb": {
+    "toc": false,
     "layout": "default",
+    "tasks": [
+      "readme"
+    ],
     "plugins": [
       "gulp-format-md"
     ],
     "related": {
-      "list": []
+      "list": [
+        "base",
+        "base-option",
+        "base-task"
+      ]
     },
     "reflinks": [
-      "verb"
-    ]
+      "verb",
+      "base"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }
