@@ -22,9 +22,9 @@ base.use(engines());
 
 ## API
 
-### [.engine](index.js#L38)
+### [.engine](index.js#L39)
 
-Register a view engine callback `fn` as `ext`.
+Register a view engine callback `fn` as `ext`. Calls `.setEngine` and `.getEngine` internally.
 
 **Params**
 
@@ -45,6 +45,26 @@ app.engine('swig', engine.swig);
 // get a registered engine
 var swig = app.engine('swig');
 ```
+
+### [.getEngine](index.js#L68)
+
+Register engine `ext` with the given render `fn` and/or `settings`.
+
+**Params**
+
+* `ext` **{String}**: The engine to set.
+
+**Example**
+
+```js
+app.setEngine('hbs', require('engine-handlebars'), {
+  delims: ['<%', '%>']
+});
+```
+
+### [.getEngine](index.js#L91)
+
+Get registered engine `ext`.
 
 **Params**
 

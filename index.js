@@ -15,7 +15,8 @@ module.exports = function(options) {
     };
 
     /**
-     * Register a view engine callback `fn` as `ext`.
+     * Register a view engine callback `fn` as `ext`. Calls `.setEngine`
+     * and `.getEngine` internally.
      *
      * ```js
      * app.engine('hbs', require('engine-handlebars'));
@@ -59,7 +60,9 @@ module.exports = function(options) {
      *   delims: ['<%', '%>']
      * });
      * ```
+     * @name .getEngine
      * @param {String} `ext` The engine to set.
+     * @api public
      */
 
     this.define('setEngine', function(ext, fn, settings) {
@@ -80,6 +83,7 @@ module.exports = function(options) {
      * app.engine('hbs', require('engine-handlebars'));
      * var engine = app.getEngine('hbs');
      * ```
+     * @name .getEngine
      * @param {String} `ext` The engine to get.
      * @api public
      */
