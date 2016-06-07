@@ -4,9 +4,15 @@ var debug = require('debug')('base:engines');
 var utils = require('./utils');
 
 module.exports = function(options) {
-  return function(app) {
+  return function baseEngines(app) {
+    if (!utils.isValid(app, 'base-engines', ['app', 'collection', 'views', 'list'])) {
+      return;
+    }
 
-    utils.define(this, '_', this._ || {});
+    if (typeof this._ === 'undefined') {
+      utils.define(this, '_', {});
+    }
+
     this.engines = this.engines || {};
     this._.engines = new utils.Engines(this.engines);
     this._.helpers = {
@@ -60,7 +66,7 @@ module.exports = function(options) {
      *   delims: ['<%', '%>']
      * });
      * ```
-     * @name .getEngine
+     * @name .setEngine
      * @param {String} `ext` The engine to set.
      * @api public
      */
@@ -102,5 +108,7 @@ module.exports = function(options) {
         return this._.engines.getEngine(ext);
       }
     });
+
+    return baseEngines;
   };
 };

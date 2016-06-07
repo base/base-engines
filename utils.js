@@ -10,6 +10,7 @@ require = utils;
 
 require('engine-cache', 'Engines');
 require('define-property', 'define');
+require('is-valid-app', 'isValid');
 require = fn;
 
 /**
@@ -18,19 +19,6 @@ require = fn;
 
 utils.arrayify = function(val) {
   return val ? (Array.isArray(val) ? val : [val]) : [];
-};
-
-/**
- * Return true if the given value is an object.
- * @return {Boolean}
- */
-
-utils.isObject = function(val) {
-  if (!val || Array.isArray(val)) {
-    return false;
-  }
-  return typeof val === 'function'
-    || typeof val === 'object';
 };
 
 /**

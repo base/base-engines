@@ -8,7 +8,7 @@ var app;
 
 describe('.engines', function() {
   beforeEach(function() {
-    app = new App();
+    app = new App({isApp: true});
     app.use(engines());
   });
 
