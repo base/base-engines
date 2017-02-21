@@ -4,6 +4,10 @@
   "version": "0.2.0",
   "homepage": "https://github.com/node-base/base-engines",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [
+    "Brian Woodward <brian.woodward@gmail.com> (https://github.com/doowb)",
+    "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
+  ],
   "repository": "node-base/base-engines",
   "bugs": {
     "url": "https://github.com/node-base/base-engines/issues"
@@ -32,7 +36,23 @@
     "gulp-format-md": "^0.1.9",
     "mocha": "^2.5.3"
   },
-  "keywords": [],
+  "keywords": [
+    "api",
+    "app",
+    "application",
+    "base",
+    "base-plugin",
+    "baseplugin",
+    "building-blocks",
+    "create",
+    "engines",
+    "framework",
+    "plugin",
+    "plugins",
+    "tool",
+    "toolkit",
+    "tools"
+  ],
   "verb": {
     "toc": false,
     "layout": "default",
