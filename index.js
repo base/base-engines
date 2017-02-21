@@ -94,7 +94,7 @@ module.exports = function(options) {
      * @api public
      */
 
-    this.define('getEngine', function(ext) {
+    this.define('getEngine', function(ext, fallback) {
       debug('getting engine "%s"', ext);
 
       if (!utils.isString(ext)) {
@@ -105,7 +105,11 @@ module.exports = function(options) {
 
       if (utils.isString(ext)) {
         ext = utils.formatExt(ext);
-        return this._.engines.getEngine(ext);
+        var engine = this._.engines.getEngine(ext);
+        if (!engine && this.options.engine && fallback !== false) {
+          return this.getEngine(this.options.engine, false);
+        }
+        return engine;
       }
     });
 

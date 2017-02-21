@@ -45,6 +45,18 @@ describe('.engines', function() {
     assert(hbs.hasOwnProperty('compile'));
   });
 
+  it('should get a fallback engine from options:', function() {
+    app.options.engine = 'foo';
+    app.engine('foo', function() {});
+    app.engine('bar', function() {});
+    var engine = app.engine('baz');
+
+    assert.equal(engine.name, 'foo');
+    assert.equal(typeof engine, 'object');
+    assert(engine.hasOwnProperty('render'));
+    assert(engine.hasOwnProperty('compile'));
+  });
+
   it('should return undefined if no engine is found:', function() {
     var hbs = app.getEngine();
     assert.equal(typeof hbs, 'undefined');
